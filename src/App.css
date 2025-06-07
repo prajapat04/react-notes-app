@@ -35,7 +35,7 @@
 }
 
 .form-style {
-      width: 70vh;
+      width: 90vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -51,7 +51,15 @@
       display: flex;
     width: 100%;
     justify-content: space-evenly;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
+    align-items: center;
+}
+
+.list-width {
+      display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    flex-direction: column;
 }
 .text-gradiant {
   background-image: linear-gradient(90deg, rgb(187, 22, 22) 0%, rgb(255, 255, 255) 150%);
@@ -73,10 +81,11 @@
     border-right: 1px solid rgb(149, 29, 29);
 }
 .btn {
-      height: 46px;
-    padding: 5px 10px;
-    margin: 5px;
+  margin-left: 5px;
 }
 .input-text {
   width: 73%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid red;
 }
