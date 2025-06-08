@@ -83,28 +83,27 @@
 }
 
 .input-text {
-  width: 70%;
+  width: 45%;
   padding: 10px;
   border-radius: 8px;
   border: 2px solid red;
   background: transparent;
   margin: 1em;
+  color: black;
 }
 .ddark .text-gradiant {
    background-image: linear-gradient(90deg, rgb(50, 22, 187) 0%, rgb(255, 255, 255) 150%);
 }
 .input-text-sr {
-  width: 50%;
+  width: 40%;
   padding: 10px;
   border-radius: 8px;
   border: 2px solid rgb(100, 68, 68);
   background: transparent;
   margin: 1em;
-
-}
-.ddark .input-text, .input-text-sr {
   color: black;
 }
+
 
 .ddark {
   background-color: white;
@@ -114,6 +113,9 @@
   margin-left: 83%;
 
 }
-.ddark button {
+.ddark button{
+  background-color: blueviolet;
+}
+.ddark select {
   background-color: blueviolet;
 }

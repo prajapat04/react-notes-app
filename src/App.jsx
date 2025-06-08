@@ -12,6 +12,7 @@ function App() {
   const [editIndex, setEditIndex] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [darkMode, setDarkMode] = useState(() => localStorage.getItem("darkMode") === "true");
+  const [category, setCategory] = useState("work");
 
 
   // Load from localStorage
@@ -41,15 +42,18 @@ function App() {
     if (editIndex !== null) {
       const updatedNotes = [...notes];
       updatedNotes[editIndex].text = note;
+      updatedNotes[editIndex].category = category;
       setNotes(updatedNotes);
       setEditIndex(null);
     } else {
       const newNote = {
         id: Date.now(), // Generate unique ID
+        category,
+        pinned: false,
         text: note,
         timestamp: new Date().toISOString()
       };
-      setNotes([...notes, newNote]);
+      setNotes([newNote, ...notes]);
     }
     setNote("");
   };
@@ -57,6 +61,7 @@ function App() {
 
   const handleEditNote = (index) => {
     setNote(notes[index].text);
+    setCategory(notes[index].category);
     setEditIndex(index);
   };
 
@@ -68,8 +73,16 @@ function App() {
     }
   };
 
-  const filteredNotes = notes.filter((n) => n.text.toLowerCase().includes(searchQuery.toLowerCase()));
+   const handlePinToggle = (index) => {
+    const updated = [...notes];
+    updated[index].pinned = !updated[index].pinned;
+    setNotes(updated);
+  };
 
+  const filteredNotes = notes.filter((n) => n.text.toLowerCase().includes(searchQuery.toLowerCase()));
+  
+  const pinnedNotes = filteredNotes.filter(n => n.pinned);
+  const unpinnedNotes = filteredNotes.filter(n => !n.pinned);
 
   return (
     <div className={"p-4 max-w-xl mx-auto form-style  " + (darkMode ? "ddark" : "")}>
@@ -89,16 +102,26 @@ function App() {
       <NoteForm
         note={note}
         setNote={setNote}
+        category={category}
+        setCategory={setCategory}
         onSubmit={handleAddOrUpdateNote}
         editMode={editIndex !== null}
       />
-
+       {pinnedNotes.length > 0 && <h2 className="font-bold mt-4">📌 Pinned</h2>}
       <NoteList 
-      notes={filteredNotes} 
+      notes={pinnedNotes} 
       onEdit={handleEditNote} 
       onDelete={handleDeleteNote}
+      onPinToggle={handlePinToggle}
       ></NoteList>
-
+       
+       
+       {unpinnedNotes.length > 0 && <h2 className="font-bold mt-4">📝 Others</h2>}
+        <NoteList
+          notes={unpinnedNotes}
+          onEdit={handleEditNote}
+          onDelete={handleDeleteNote}
+          onPinToggle={handlePinToggle} />
     </div>
  
   );

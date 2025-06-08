@@ -1,8 +1,17 @@
 import React from "react";
 
-function NoteItem({ note, index, onEdit, onDelete }) {
+function NoteItem({ note, index, onEdit, onDelete, onPinToggle }) {
   return (
     <div className="border p-3 rounded bg-white shadow form-width">
+      <div className="flex justify-between items-center mb-2">
+        <h3 className="font-bold text-gray-700">{note.category}</h3>
+        <button
+          onClick={() => onPinToggle(index)}
+          className="text-sm text-yellow-500 underline"
+        >
+          {note.pinned ? "Unpin" : "Pin"}
+        </button>
+      </div>
       <p className="text-gray-800 whitespace-pre-wrap list-name">{note.text}</p>
       <p className="text-xs text-gray-500 mb-2">
         Saved on: {new Date(note.timestamp).toLocaleString()}

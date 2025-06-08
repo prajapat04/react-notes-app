@@ -1,7 +1,7 @@
 import React from "react";
 import NoteItem from "./NoteItem";
 
-function NoteList({ notes, onEdit, onDelete }) {
+function NoteList({ notes, onEdit, onDelete, onPinToggle }) {
   if(notes.length === 0) return <p className="text-gray-500">No notes yet.</p>
   return (
     <div className="space-y-4 mt-4 list-width">
@@ -12,6 +12,7 @@ function NoteList({ notes, onEdit, onDelete }) {
           note={note}
           onEdit={onEdit}
           onDelete={onDelete}
+          onPinToggle={onPinToggle}
         />
       ))}
     </div>
