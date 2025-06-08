@@ -66,6 +66,7 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     transition: all 0.5s ease;
+    margin-top: 0;
 }
 .list-border {
   display: flex;
@@ -80,12 +81,39 @@
   width: 25%;
     border-right: 1px solid rgb(149, 29, 29);
 }
-.btn {
-  margin-left: 5px;
-}
+
 .input-text {
-  width: 73%;
+  width: 70%;
   padding: 10px;
   border-radius: 8px;
   border: 2px solid red;
+  background: transparent;
+  margin: 1em;
+}
+.ddark .text-gradiant {
+   background-image: linear-gradient(90deg, rgb(50, 22, 187) 0%, rgb(255, 255, 255) 150%);
+}
+.input-text-sr {
+  width: 50%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid rgb(100, 68, 68);
+  background: transparent;
+  margin: 1em;
+
+}
+.ddark .input-text, .input-text-sr {
+  color: black;
+}
+
+.ddark {
+  background-color: white;
+  color: black;
+}
+.dark-mode-btn {
+  margin-left: 83%;
+
+}
+.ddark button {
+  background-color: blueviolet;
 }
