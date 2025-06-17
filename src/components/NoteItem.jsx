@@ -1,30 +1,35 @@
-import React from "react";
 
-function NoteItem({ note, index, onEdit, onDelete, onPinToggle }) {
+import React from "react";
+import ReactMarkdown from "react-markdown";
+
+function NoteItem({ note, index, onEdit, onDelete, onTogglePin }) {
   return (
-    <div className="border p-3 rounded bg-white shadow form-width">
-      <div className="flex justify-between items-center mb-2">
-        <h3 className="font-bold text-gray-700">{note.category}</h3>
-        <button
-          onClick={() => onPinToggle(index)}
-          className="text-sm text-yellow-500 underline"
-        >
-          {note.pinned ? "Unpin" : "Pin"}
+    <div className="border p-3 rounded bg-white shadow dark:bg-gray-800 dark:text-white bx-shadow">
+      <div className="ls-catpin">
+        <strong><span className="">
+          {note.category || "General"}
+        </span></strong>
+        <button onClick={() => onTogglePin(index)} className="text-sm btn-wt">
+          {note.pinned ? "📌 Unpin" : "📍 Pin"}
         </button>
       </div>
-      <p className="text-gray-800 whitespace-pre-wrap list-name">{note.text}</p>
-      <p className="text-xs text-gray-500 mb-2">
+      <div>
+      <ReactMarkdown>
+        {note.text}
+      </ReactMarkdown>
+      </div>
+      <p className="text-xs text-gray-500 mt-2 dark:text-gray-400">
         Saved on: {new Date(note.timestamp).toLocaleString()}
       </p>
-      <div className="space-x-2">
+      <div className="space-x-2 mt-2">
         <button
-          className="px-2 py-1 bg-yellow-400 text-white rounded btn"
+          className="px-2 py-1 bg-yellow-400 text-white rounded"
           onClick={() => onEdit(index)}
         >
           Edit
         </button>
         <button
-          className="px-2 py-1 bg-red-500 text-white rounded btn"
+          className="px-2 py-1 bg-red-500 text-white rounded"
           onClick={() => onDelete(index)}
         >
           Delete

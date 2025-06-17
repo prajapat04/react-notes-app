@@ -1,17 +1,21 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  margin: 1em auto;
+  width: 90%;
+  max-width: 800px;
 }
 
 .text-gradiant:hover {
   filter: drop-shadow(0 0 0.5em #646cffaa);
 }
-.form-style:hover{
-  box-shadow: 0 4px 8px 10px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
 
+.form-style:hover {
+  box-shadow: 0 4px 8px 10px rgba(0, 0, 0, 0.2),
+              0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+p{
+  width: 90%;
+}
 
 @keyframes logo-spin {
   from {
@@ -28,94 +32,191 @@
   }
 }
 
-
-
 .read-the-docs {
   color: #888;
 }
 
 .form-style {
-      width: 90vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 0.1em  solid #9e1d1dd1;
-    padding: 2em;
-    border-radius: 1em;
-    transition: all 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 0.1em solid #9e1d1dd1;
+  padding: 2em;
+  border-radius: 1em;
+  transition: all 0.5s ease;
 }
+
 .form-list {
   width: 100%;
 }
+
 .form-width {
-      display: flex;
-    width: 100%;
-    justify-content: space-evenly;
-    margin-bottom: 1em;
-    align-items: center;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  margin-bottom: 1em;
+  align-items: center;
+}
+
+.cat-note {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0;
+}
+
+.wt-100 {
+  width: 100%;
 }
 
 .list-width {
-      display: flex;
-    width: 100%;
-    justify-content: space-evenly;
-    flex-direction: column;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
 }
+
+.list-details {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  align-items: center;
+}
+
 .text-gradiant {
   background-image: linear-gradient(90deg, rgb(187, 22, 22) 0%, rgb(255, 255, 255) 150%);
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    transition: all 0.5s ease;
-    margin-top: 0;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.5s ease;
 }
+
 .list-border {
   display: flex;
-    justify-content: space-around;
-    width: 100%;
-    border: 2px solid rgb(149, 29, 29);
-    border-radius: 8px;
-    margin: 5px auto;
-    align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  border: 2px solid rgb(149, 29, 29);
+  border-radius: 8px;
+  margin: 5px auto;
+  align-items: center;
 }
+
 .list-name {
   width: 25%;
-    border-right: 1px solid rgb(149, 29, 29);
+  border-right: 1px solid rgb(149, 29, 29);
+}
+
+.ls-catpin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ls-name {
+  width: 20%;
+}
+
+.bx-shadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+              0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 1em;
+  padding: 1em;
+  word-wrap: break-word; 
+  overflow-wrap: break-word;  
+  white-space: normal;        
 }
 
 .input-text {
-  width: 45%;
-  padding: 10px;
+  width: 95%;
+  padding: 17px;
   border-radius: 8px;
   border: 2px solid red;
   background: transparent;
-  margin: 1em;
+  margin: 1em 0;
+  color: white;
+}
+
+.ddark .input-text {
   color: black;
 }
+
 .ddark .text-gradiant {
-   background-image: linear-gradient(90deg, rgb(50, 22, 187) 0%, rgb(255, 255, 255) 150%);
+  background-image: linear-gradient(90deg, rgb(50, 22, 187) 0%, rgb(255, 255, 255) 150%);
 }
+
 .input-text-sr {
-  width: 40%;
-  padding: 10px;
+  width: 95%;
+  padding: 17px;
   border-radius: 8px;
   border: 2px solid rgb(100, 68, 68);
   background: transparent;
   margin: 1em;
-  color: black;
+  color: white;
 }
 
+.ddark .input-text-sr {
+  color: black;
+}
 
 .ddark {
-  background-color: white;
+  background-color: rgb(249, 251, 251);
   color: black;
 }
+
 .dark-mode-btn {
   margin-left: 83%;
-
 }
-.ddark button{
+
+.ddark button {
   background-color: blueviolet;
 }
+
 .ddark select {
   background-color: blueviolet;
+}
+
+
+@media screen and (max-width: 768px) {
+  .form-style {
+    padding: 1em;
+  }
+
+  .form-width,
+  .list-border,
+  .cat-note,
+  .ls-catpin {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .list-name,
+  .ls-name {
+    width: 100%;
+    border-right: none;
+  }
+
+  .input-text,
+  .input-text-sr {
+    width: 90%;
+    padding: 12px;
+  }
+
+  .dark-mode-btn {
+    margin-left: auto;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  h1 {
+    font-size: 2.7em;
+  }
+
+
+  button {
+    width: 46%;
+    padding: 0.6em 0.3em;
+  }
+
+  .dark-mode-btn {
+    margin-left: auto;
+  }
 }

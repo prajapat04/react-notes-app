@@ -11,7 +11,7 @@ function App() {
   const [note, setNote] = useState("");
   const [editIndex, setEditIndex] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
-  const [darkMode, setDarkMode] = useState(() => localStorage.getItem("darkMode") === "true");
+  const [darkMode, setDarkMode] = useState(() => JSON.parse(localStorage.getItem("darkMode")) || false);
   const [category, setCategory] = useState("work");
 
 
@@ -19,7 +19,6 @@ function App() {
   useEffect(() => {
     const saved = localStorage.getItem("notes");
     if (saved) {
-      console.log("Loaded notes:", saved);
       setNotes(JSON.parse(saved));
     }
   }, []);
@@ -28,7 +27,6 @@ function App() {
   useEffect(() => {
     if (notes.length > 0) {
       localStorage.setItem("notes", JSON.stringify(notes));
-      console.log("Saved notes:", notes);
     }
   }, [notes]);
 
@@ -56,6 +54,7 @@ function App() {
       setNotes([newNote, ...notes]);
     }
     setNote("");
+    setCategory("General");
   };
 
 
@@ -85,7 +84,7 @@ function App() {
   const unpinnedNotes = filteredNotes.filter(n => !n.pinned);
 
   return (
-    <div className={"p-4 max-w-xl mx-auto form-style  " + (darkMode ? "ddark" : "")}>
+    <div className={"form-style  " + (darkMode ? "ddark" : "")}>
       <button onClick={() => setDarkMode(!darkMode)}
         className="bg-gray-800 text-white px-3 py-1 rounded dark-mode-btn "
       >
@@ -107,21 +106,12 @@ function App() {
         onSubmit={handleAddOrUpdateNote}
         editMode={editIndex !== null}
       />
-       {pinnedNotes.length > 0 && <h2 className="font-bold mt-4">📌 Pinned</h2>}
-      <NoteList 
-      notes={pinnedNotes} 
-      onEdit={handleEditNote} 
-      onDelete={handleDeleteNote}
-      onPinToggle={handlePinToggle}
-      ></NoteList>
-       
-       
-       {unpinnedNotes.length > 0 && <h2 className="font-bold mt-4">📝 Others</h2>}
         <NoteList
-          notes={unpinnedNotes}
-          onEdit={handleEditNote}
-          onDelete={handleDeleteNote}
-          onPinToggle={handlePinToggle} />
+        notes={[...pinnedNotes, ...unpinnedNotes]}
+        onEdit={handleEditNote}
+        onDelete={handleDeleteNote}
+        onTogglePin={handlePinToggle}
+      />
     </div>
  
   );
