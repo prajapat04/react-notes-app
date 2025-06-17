@@ -1,0 +1,155 @@
+ #root {
+  text-align: center;
+  margin: 1em auto;
+  width: 60%;
+} 
+
+.text-gradiant:hover {
+  filter: drop-shadow(0 0 0.5em #646cffaa);
+}
+.form-style:hover{
+  box-shadow: 0 4px 8px 10px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+
+
+.read-the-docs {
+  color: #888;
+}
+
+.form-style {
+      width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 0.1em  solid #9e1d1dd1;
+    padding: 2em;
+    border-radius: 1em;
+    transition: all 0.5s ease;
+}
+.form-list {
+  width: 100%;
+}
+.form-width {
+      display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    margin-bottom: 1em;
+    align-items: center;
+}
+.cat-note {
+  display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+.wt-100 {
+  width: 100%;
+}
+.list-width {
+      display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+.list-details {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  align-items: center;
+}
+.text-gradiant {
+  background-image: linear-gradient(90deg, rgb(187, 22, 22) 0%, rgb(255, 255, 255) 150%);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.5s ease;
+    margin-top: 0;
+}
+.list-border {
+  display: flex;
+    justify-content: space-around;
+    width: 100%;
+    border: 2px solid rgb(149, 29, 29);
+    border-radius: 8px;
+    margin: 5px auto;
+    align-items: center;
+}
+.list-name {
+  width: 25%;
+    border-right: 1px solid rgb(149, 29, 29);
+}
+.ls-catpin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.ls-name {
+  width: 20%;
+}
+.bx-shadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 1em;
+  padding: 1em;
+}
+.input-text {
+  width: 95%;
+  padding: 17px;
+  border-radius: 8px;
+  border: 2px solid red;
+  background: transparent;
+  margin: 1em 0; 
+  color: white;
+}
+.ddark .input-text {
+  color: black;
+}
+
+.ddark .text-gradiant {
+   background-image: linear-gradient(90deg, rgb(50, 22, 187) 0%, rgb(255, 255, 255) 150%);
+}
+.input-text-sr {
+  width: 95%;
+  padding: 17px;
+  border-radius: 8px;
+  border: 2px solid rgb(100, 68, 68);
+  background: transparent;
+  margin: 1em;
+  color: white;
+}
+.ddark .input-text-sr {
+  color: black;
+}
+
+
+.ddark {
+  background-color: white;
+  color: black;
+}
+.dark-mode-btn {
+  margin-left: 83%;
+
+}
+.ddark button{
+  background-color: blueviolet;
+}
+.ddark select {
+  background-color: blueviolet;
+}
+
